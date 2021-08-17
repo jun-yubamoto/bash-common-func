@@ -1,0 +1,38 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
+  <id>dist</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+<fileSets>
+  <fileSet>
+    <directory>src/main/script/bin</directory>
+    <outputDirectory>common/bin</outputDirectory>
+    <includes>
+      <include>*.sh</include>
+    </includes>
+    <lineEnding>unix</lineEnding>
+    <fileMode>0755</fileMode>
+  </fileSet>
+  <fileSet>
+    <directory>src/main/script/resources</directory>
+    <outputDirectory>common/resources</outputDirectory>
+    <includes>
+      <include>**</include>
+    </includes>
+    <lineEnding>unix</lineEnding>
+    <fileMode>0655</fileMode>
+  </fileSet>
+  <fileSet>
+    <directory>src/test/script/support</directory>
+    <outputDirectory>test/support</outputDirectory>
+    <includes>
+      <include>**</include>
+    </includes>
+    <lineEnding>unix</lineEnding>
+    <fileMode>0755</fileMode>
+  </fileSet>
+</fileSets>
+</assembly>

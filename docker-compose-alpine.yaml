@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  alpine-bash-workspace:
+    image: alpinelinux-bash-workspace:0.0.1-SNAPSHOT
+    container_name: alpine-bash-workspace
+    tty: true
+    environment:
+      PGHOST: postgresql
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: postgres
+      LOG_MESSAGE_FILES: '/srv/local/app/bash/common/resources/commonLogMessages.csv /srv/local/app/bash/common/resources/bizLogMessages.csv'
+    volumes:
+      - ./src/main/script/bin:/srv/local/app/bash/common/bin
+      - ./src/main/script/resources:/srv/local/app/bash/common/resources
+      - ./src/test/script/support:/srv/local/app/bash/test/support
+      - ./src/test/script/bats:/srv/local/app/bash/test/common/bats
+    depends_on:
+      - postgresql
+  postgresql:
+    image: postgres:13.3-alpine
+    container_name: postgresql
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+    volumes:
+      - ./src/test/resources/ddl/:/docker-entrypoint-initdb.d/

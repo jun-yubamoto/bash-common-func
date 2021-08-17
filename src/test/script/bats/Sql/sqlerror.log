@@ -1,0 +1,4 @@
+\[${TEST_LOG_DATE}\] \[ZZZZ-0000002\] \[WARN\] Sql error. retry_limit=3 retry_count=1 retry_wait_sec=3 \[\(SqlFuncWrapper.sh:[0-9]*\)>\(commonFunc.sh:[0-9]*\)>\]
+\[${TEST_LOG_DATE}\] \[ZZZZ-0000002\] \[WARN\] Sql error. retry_limit=3 retry_count=2 retry_wait_sec=3 \[\(SqlFuncWrapper.sh:[0-9]*\)>\(commonFunc.sh:[0-9]*\)>\]
+\[${TEST_LOG_DATE}\] \[ZZZZ-0000002\] \[WARN\] Sql error. retry_limit=3 retry_count=3 retry_wait_sec=3 \[\(SqlFuncWrapper.sh:[0-9]*\)>\(commonFunc.sh:[0-9]*\)>\]
+\[${TEST_LOG_DATE}\] \[ZZZZ-0000003\] \[ERROR\] Sql error retry over. retry_limit=3 retry_count=4 \[Optional Message:psql:/srv/local/app/bash/test/common/bats/Sql/error\.sql\.[0-9]*:[0-9]*: ERROR: 42P01: relation \"nodeftable\" does not exist LINE 1: select \\* from nodeftable; \^ LOCATION: parserOpenTable, parse_relation.c:[0-9]*\] \[\(SqlFuncWrapper.sh:[0-9]*\)>\(commonFunc.sh:[0-9]*\)>\]

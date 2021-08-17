@@ -1,0 +1,3 @@
+ZZZZ-0000001,ERROR,System Error. DetailMsg[$1]
+ZZZZ-0000002,WARN,Sql error. retry_limit=$1 retry_count=$2 retry_wait_sec=$3
+ZZZZ-0000003,ERROR,Sql error retry over. retry_limit=$1 retry_count=$2
